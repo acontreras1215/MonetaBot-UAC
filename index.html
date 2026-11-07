@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MonetaBot UAC</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
+}
+
+.header{
+    background:#003366;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.chat-container{
+    max-width:900px;
+    margin:20px auto;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+    overflow:hidden;
+}
+
+.chat-box{
+    height:500px;
+    overflow-y:auto;
+    padding:20px;
+}
+
+.bot{
+    background:#eef5ff;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:10px;
+}
+
+.user{
+    background:#d9fdd3;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:10px;
+    text-align:right;
+}
+
+.input-area{
+    display:flex;
+    border-top:1px solid #ddd;
+}
+
+input{
+    flex:1;
+    padding:14px;
+    border:none;
+    font-size:16px;
+}
+
+button{
+    background:#003366;
+    color:white;
+    border:none;
+    padding:14px 20px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#002244;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>🤖 MonetaBot UAC</h1>
+<p>Asistente Virtual del Curso Moneda y Banca</p>
+</div>
+
+<div class="chat-container">
+
+<div class="chat-box" id="chat">
+
+<div class="bot">
+Hola 👋 Soy MonetaBot UAC.
+
+Puedo ayudarte con:
+
+✅ Oferta monetaria
+
+✅ Inflación
+
+✅ Banco Central
+
+✅ Sistema Financiero
+
+✅ Política Monetaria
+
+✅ Actividades del curso
+
+Escribe una pregunta.
+</div>
+
+</div>
+
+<div class="input-area">
+
+<input
+type="text"
+id="pregunta"
+placeholder="Escribe tu pregunta">
+
+<button onclick="enviar()">
+Enviar
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function enviar(){
+
+let input=document.getElementById("pregunta");
+let texto=input.value.trim();
+
+if(texto==="") return;
+
+let chat=document.getElementById("chat");
+
+chat.innerHTML+=`
+<div class="user">
+${texto}
+</div>
+`;
+
+let respuesta="";
+
+let q=texto.toLowerCase();
+
+if(q.includes("oferta monetaria")){
+respuesta="La oferta monetaria es la cantidad total de dinero disponible en una economía.";
+}
+else if(q.includes("inflación")){
+respuesta="La inflación es el aumento sostenido de los precios de bienes y servicios.";
+}
+else if(q.includes("banco central")){
+respuesta="El Banco Central ejecuta la política monetaria y ayuda a mantener la estabilidad económica.";
+}
+else if(q.includes("política monetaria")){
+respuesta="La política monetaria son las acciones del Banco Central para controlar inflación y liquidez.";
+}
+else{
+respuesta="Estoy en modo demostración. Próximamente responderé usando todo el contenido del curso.";
+}
+
+chat.innerHTML+=`
+<div class="bot">
+🤖 ${respuesta}
+</div>
+`;
+
+input.value="";
+chat.scrollTop=chat.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
