@@ -332,7 +332,10 @@ function preguntar(){
 
 let texto =
 document.getElementById("pregunta")
-.value.toLowerCase();
+.value
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"");
 
 let respuesta="";
 
