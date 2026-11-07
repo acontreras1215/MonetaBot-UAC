@@ -336,7 +336,11 @@ document.getElementById("pregunta")
 
 let respuesta="";
 
-if(texto.includes("inflacion")){
+if(
+texto.includes("inflacion")
+||
+texto.includes("inflación")
+){
 
 respuesta="La inflación es el aumento sostenido del nivel general de precios.";
 
