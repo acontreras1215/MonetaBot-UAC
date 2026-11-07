@@ -86,7 +86,29 @@ button:hover{
 </div>
 
 <div class="chat-container">
+<div style="padding:10px;text-align:center">
 
+<button>
+📚 Unidad 1
+</button>
+
+<button>
+💵 Unidad 2
+</button>
+
+<button>
+🏦 Unidad 3
+</button>
+
+<button>
+📝 Quiz
+</button>
+
+<button>
+🎯 Saber Pro
+</button>
+
+</div>
 <div class="chat-box" id="chat">
 
 <div class="bot">
@@ -127,7 +149,37 @@ Enviar
 </div>
 
 <script>
+function cargarUnidad1(){
 
+let chat=document.getElementById("chat");
+
+chat.innerHTML += `
+<div class="bot">
+
+📚 UNIDAD 1
+
+Sistema Financiero Colombiano
+
+Temas:
+
+✅ Bancos
+
+✅ Corporaciones financieras
+
+✅ Fiducia
+
+✅ Leasing
+
+✅ Fintech
+
+✅ Basilea III
+
+✅ Bre-B
+
+</div>
+`;
+
+}
 function enviar(){
 
 let input=document.getElementById("pregunta");
@@ -177,4 +229,11 @@ chat.scrollTop=chat.scrollHeight;
 </script>
 
 </body>
+<div style="padding:10px;text-align:center;">
+
+<button onclick="cargarUnidad1()">
+📚 Unidad 1
+</button>
+
+</div>
 </html>
