@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MonetaBot UAC</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f4f6f9;
+}
+
+.header{
+background:#003366;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.menu{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+padding:15px;
+background:white;
+}
+
+.menu button{
+background:#003366;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.menu button:hover{
+background:#0055aa;
+}
+
+.contenedor{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.panel{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 2px 8px rgba(0,0,0,.15);
+margin-bottom:15px;
+}
+
+#respuesta{
+margin-top:15px;
+background:#eef5ff;
+padding:15px;
+border-radius:10px;
+}
+
+input{
+width:80%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:16px;
+}
+
+button.preguntar{
+padding:12px;
+background:#198754;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>🤖 MonetaBot UAC</h1>
+
+<p>
+Auxiliar Docente Virtual de Moneda y Banca
+<br>
+Universidad Autónoma del Caribe
+</p>
+
+</div>
+
+<div class="menu">
+
+<button onclick="unidad1()">📚 Unidad 1</button>
+
+<button onclick="unidad2()">💵 Unidad 2</button>
+
+<button onclick="unidad3()">🏦 Unidad 3</button>
+
+<button onclick="quiz()">📝 Quiz</button>
+
+<button onclick="saberpro()">🎯 Saber Pro</button>
+
+</div>
+
+<div class="contenedor">
+
+<div class="panel">
+
+<h2>Pregunta a MonetaBot</h2>
+
+<input
+type="text"
+id="pregunta"
+placeholder="Escribe tu pregunta aquí">
+
+<button
+class="preguntar"
+onclick="preguntar()">
+
+Preguntar
+
+</button>
+
+<div id="respuesta">
+
+Hola 👋
+
+Soy MonetaBot UAC.
+
+Puedo ayudarte con:
+
+✅ Sistema Financiero
+
+✅ Dinero
+
+✅ Inflación
+
+✅ Oferta Monetaria
+
+✅ Banco de la República
+
+✅ Basilea III
+
+✅ Encaje Bancario
+
+✅ Política Monetaria
+
+✅ Multiplicador Monetario
+
+</div>
+
+</div>
+
+<div class="panel" id="contenido">
+
+<h2>Bienvenido</h2>
+
+Selecciona una opción del menú o realiza una pregunta.
+
+</div>
+
+</div>
+
+<script>
+
+function unidad1(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>📚 Unidad 1</h2>
+
+<h3>Sistema Financiero Colombiano</h3>
+
+<ul>
+
+<li>Bancos comerciales</li>
+
+<li>Corporaciones financieras</li>
+
+<li>Leasing</li>
+
+<li>Fiducia</li>
+
+<li>Basilea III</li>
+
+<li>Fintech</li>
+
+<li>Bre-B</li>
+
+</ul>
+
+`;
+
+}
+
+function unidad2(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>💵 Unidad 2</h2>
+
+<h3>Dinero y Banco de la República</h3>
+
+<ul>
+
+<li>Funciones del dinero</li>
+
+<li>Inflación</li>
+
+<li>IPC</li>
+
+<li>Oferta monetaria</li>
+
+<li>M1</li>
+
+<li>M2</li>
+
+<li>Multiplicador monetario</li>
+
+</ul>
+
+`;
+
+}
+
+function unidad3(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>🏦 Unidad 3</h2>
+
+<h3>Política Monetaria y Cambiaria</h3>
+
+<ul>
+
+<li>OMA</li>
+
+<li>Encaje bancario</li>
+
+<li>Tasas de interés</li>
+
+<li>Reservas internacionales</li>
+
+<li>Política expansiva</li>
+
+<li>Política contractiva</li>
+
+</ul>
+
+`;
+
+}
+
+function quiz(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>📝 Quiz</h2>
+
+<p>
+
+¿Cuál es una función del dinero?
+
+</p>
+
+<p>
+
+A. Emitir bonos<br>
+B. Medio de cambio<br>
+C. Cobrar impuestos<br>
+D. Administrar bancos
+
+</p>
+
+<p>
+
+✅ Respuesta correcta: B
+
+</p>
+
+`;
+
+}
+
+function saberpro(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>🎯 Saber Pro</h2>
+
+<p>
+
+Si el Banco de la República aumenta las tasas de interés:
+
+</p>
+
+<p>
+
+A. Incrementa el consumo<br>
+
+B. Reduce presiones inflacionarias<br>
+
+C. Aumenta la inflación<br>
+
+D. Elimina el ahorro
+
+</p>
+
+<p>
+
+✅ Respuesta correcta: B
+
+</p>
+
+`;
+
+}
+
+function preguntar(){
+
+let texto =
+document.getElementById("pregunta")
+.value.toLowerCase();
+
+let respuesta="";
+
+if(texto.includes("inflacion")){
+
+respuesta="La inflación es el aumento sostenido del nivel general de precios.";
+
+}
+
+else if(texto.includes("basilea")){
+
+respuesta="Basilea III es un conjunto de estándares internacionales para fortalecer la regulación bancaria.";
+
+}
+
+else if(texto.includes("encaje")){
+
+respuesta="El encaje bancario es el porcentaje de depósitos que los bancos deben mantener como reserva obligatoria.";
+
+}
+
+else if(texto.includes("oferta monetaria")){
+
+respuesta="La oferta monetaria corresponde a la cantidad total de dinero disponible en una economía.";
+
+}
+
+else if(texto.includes("m1")){
+
+respuesta="M1 incluye efectivo en circulación y depósitos a la vista.";
+
+}
+
+else if(texto.includes("m2")){
+
+respuesta="M2 incluye M1 más depósitos de ahorro y otros instrumentos líquidos.";
+
+}
+
+else if(texto.includes("oma")){
+
+respuesta="Las OMA son operaciones de mercado abierto realizadas por el Banco Central para controlar la liquidez.";
+
+}
+
+else if(texto.includes("multiplicador")){
+
+respuesta="El multiplicador monetario indica cuánto puede expandirse la oferta monetaria a partir de una cantidad inicial de dinero.";
+
+}
+
+else if(texto.includes("politica monetaria")){
+
+respuesta="La política monetaria es el conjunto de decisiones del Banco de la República para controlar inflación y liquidez.";
+
+}
+
+else{
+
+respuesta="Todavía no tengo una respuesta para esa consulta. Próximamente ampliaré mi base de conocimiento.";
+
+}
+
+document.getElementById("respuesta")
+.innerHTML=respuesta;
+
+}
+
+</script>
+
+</body>
+</html>
