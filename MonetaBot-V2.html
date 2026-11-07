@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MonetaBot UAC 2.0</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f4f6f9;
+}
+
+.header{
+background:#003366;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.menu{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
+margin-bottom:20px;
+}
+
+.menu button{
+background:#003366;
+color:white;
+border:none;
+padding:12px 15px;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.menu button:hover{
+background:#0055aa;
+}
+
+.panel{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0px 2px 8px rgba(0,0,0,.15);
+min-height:350px;
+}
+
+h2{
+color:#003366;
+}
+
+ul{
+line-height:1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>🤖 MonetaBot UAC</h1>
+<p>Asistente Inteligente de Moneda y Banca</p>
+</div>
+
+<div class="container">
+
+<div class="menu">
+
+<button onclick="unidad1()">📚 Unidad 1</button>
+
+<button onclick="unidad2()">💵 Unidad 2</button>
+
+<button onclick="unidad3()">🏦 Unidad 3</button>
+
+<button onclick="quiz()">📝 Quiz</button>
+
+<button onclick="saberpro()">🎯 Saber Pro</button>
+
+</div>
+
+<div class="panel" id="contenido">
+
+<h2>Bienvenido a MonetaBot UAC</h2>
+
+<p>
+Selecciona una opción del menú para comenzar.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function unidad1(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>📚 Unidad 1</h2>
+
+<h3>Sistema Financiero Colombiano</h3>
+
+<ul>
+<li>Bancos comerciales</li>
+<li>Corporaciones financieras</li>
+<li>Leasing</li>
+<li>Fiducia</li>
+<li>Basilea III</li>
+<li>Fintech</li>
+<li>Bre-B</li>
+</ul>
+
+<p>
+El sistema financiero colombiano canaliza el ahorro hacia la inversión y permite el funcionamiento de la economía.
+</p>
+
+`;
+
+}
+
+function unidad2(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>💵 Unidad 2</h2>
+
+<h3>Dinero y Banco de la República</h3>
+
+<ul>
+<li>Funciones del dinero</li>
+<li>Oferta monetaria</li>
+<li>Inflación</li>
+<li>IPC</li>
+<li>Agregados monetarios</li>
+<li>Multiplicador monetario</li>
+</ul>
+
+<p>
+El Banco de la República es la autoridad monetaria de Colombia.
+</p>
+
+`;
+
+}
+
+function unidad3(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>🏦 Unidad 3</h2>
+
+<h3>Política Monetaria y Cambiaria</h3>
+
+<ul>
+<li>Tasas de interés</li>
+<li>OMA</li>
+<li>Encaje bancario</li>
+<li>Política monetaria expansiva</li>
+<li>Política monetaria contractiva</li>
+<li>Reservas internacionales</li>
+</ul>
+
+`;
+
+}
+
+function quiz(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>📝 Quiz de Práctica</h2>
+
+<p><strong>Pregunta:</strong></p>
+
+<p>
+¿Cuál es la función principal del dinero como medio de cambio?
+</p>
+
+<p>
+A. Financiar gobiernos<br>
+B. Facilitar transacciones<br>
+C. Reducir impuestos<br>
+D. Emitir acciones
+</p>
+
+<p>
+✅ Respuesta Correcta: B
+</p>
+
+`;
+
+}
+
+function saberpro(){
+
+document.getElementById("contenido").innerHTML=`
+
+<h2>🎯 Pregunta Tipo Saber Pro</h2>
+
+<p>
+Si el Banco de la República aumenta las tasas de interés:
+</p>
+
+<p>
+A. Aumenta la inflación<br>
+B. Incrementa el consumo<br>
+C. Reduce presiones inflacionarias<br>
+D. Elimina el ahorro
+</p>
+
+<p>
+✅ Respuesta Correcta: C
+</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
