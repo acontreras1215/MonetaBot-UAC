@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MonetaBot UAC</title>
 
 <style>
@@ -66,7 +65,7 @@ border-radius:10px;
 }
 
 input{
-width:80%;
+width:75%;
 padding:12px;
 border:1px solid #ccc;
 border-radius:6px;
@@ -82,22 +81,25 @@ border-radius:6px;
 cursor:pointer;
 }
 
-</style>
+.progreso{
+background:#e8f5e9;
+padding:10px;
+border-radius:8px;
+margin-top:15px;
+}
 
+</style>
 </head>
 
 <body>
 
 <div class="header">
-
 <h1>🤖 MonetaBot UAC</h1>
-
 <p>
 Auxiliar Docente Virtual de Moneda y Banca
 <br>
 Universidad Autónoma del Caribe
 </p>
-
 </div>
 
 <div class="menu">
@@ -111,6 +113,8 @@ Universidad Autónoma del Caribe
 <button onclick="quiz()">📝 Quiz</button>
 
 <button onclick="saberpro()">🎯 Saber Pro</button>
+
+<button onclick="mostrarProgreso()">📊 Mi Progreso</button>
 
 </div>
 
@@ -139,25 +143,23 @@ Hola 👋
 
 Soy MonetaBot UAC.
 
-Puedo ayudarte con:
+Estoy listo para ayudarte con:
 
 ✅ Sistema Financiero
 
-✅ Dinero
-
 ✅ Inflación
+
+✅ Dinero
 
 ✅ Oferta Monetaria
 
 ✅ Banco de la República
 
-✅ Basilea III
+✅ Política Monetaria
 
 ✅ Encaje Bancario
 
-✅ Política Monetaria
-
-✅ Multiplicador Monetario
+✅ Basilea III
 
 </div>
 
@@ -178,6 +180,8 @@ Selecciona una opción del menú o realiza una pregunta.
 let puntajeQuiz = 0;
 let puntajeSaber = 0;
 
+function unidad1(){
+
 document.getElementById("contenido").innerHTML=`
 
 <h2>📚 Unidad 1</h2>
@@ -187,23 +191,18 @@ document.getElementById("contenido").innerHTML=`
 <ul>
 
 <li>Bancos comerciales</li>
-
 <li>Corporaciones financieras</li>
-
 <li>Leasing</li>
-
 <li>Fiducia</li>
-
 <li>Basilea III</li>
-
 <li>Fintech</li>
-
 <li>Bre-B</li>
 
 </ul>
 
 `;
 
+}
 
 function unidad2(){
 
@@ -216,17 +215,11 @@ document.getElementById("contenido").innerHTML=`
 <ul>
 
 <li>Funciones del dinero</li>
-
 <li>Inflación</li>
-
 <li>IPC</li>
-
 <li>Oferta monetaria</li>
-
 <li>M1</li>
-
 <li>M2</li>
-
 <li>Multiplicador monetario</li>
 
 </ul>
@@ -246,15 +239,10 @@ document.getElementById("contenido").innerHTML=`
 <ul>
 
 <li>OMA</li>
-
 <li>Encaje bancario</li>
-
 <li>Tasas de interés</li>
-
 <li>Reservas internacionales</li>
-
 <li>Política expansiva</li>
-
 <li>Política contractiva</li>
 
 </ul>
@@ -267,11 +255,9 @@ function quiz(){
 
 document.getElementById("contenido").innerHTML = `
 
-<h2>📝 Quiz de Práctica</h2>
+<h2>📝 Quiz</h2>
 
-<p><strong>Pregunta 1:</strong></p>
-
-<p>¿Cuál es una función principal del dinero?</p>
+<p><strong>¿Cuál es una función principal del dinero?</strong></p>
 
 <label>
 <input type="radio" name="quiz1" value="A">
@@ -294,10 +280,12 @@ D. Administrar bancos
 </label><br><br>
 
 <button onclick="evaluarQuiz()">
+
 Verificar Respuesta
+
 </button>
 
-<div id="resultadoQuiz" style="margin-top:15px;"></div>
+<div id="resultadoQuiz"></div>
 
 `;
 
@@ -310,63 +298,58 @@ document.querySelector('input[name="quiz1"]:checked');
 
 if(!seleccion){
 
-document.getElementById("resultadoQuiz")
-.innerHTML =
+document.getElementById("resultadoQuiz").innerHTML =
 "⚠️ Debes seleccionar una respuesta.";
 
 return;
 
 }
 
-if(seleccion.value === "B"){
+if(seleccion.value==="B"){
 
-puntajeQuiz += 10;
+puntajeQuiz+=10;
 
-document.getElementById("resultadoQuiz")
-.innerHTML = `
+document.getElementById("resultadoQuiz").innerHTML = `
 
-<div style="color:green">
+<p style="color:green">
 
 ✅ Correcto
 
-<br><br>
+</p>
+
+<p>
 
 Puntaje Quiz: ${puntajeQuiz}
 
-<br><br>
+</p>
+
+<p>
 
 Retroalimentación:
 
-El dinero cumple la función de medio de cambio
-porque facilita las transacciones de bienes y servicios.
+El dinero cumple la función de medio de cambio porque facilita las transacciones.
 
-</div>
+</p>
 
 `;
 
 }else{
 
-document.getElementById("resultadoQuiz")
-.innerHTML = `
+document.getElementById("resultadoQuiz").innerHTML = `
 
-<div style="color:red">
+<p style="color:red">
 
 ❌ Incorrecto
 
-<br><br>
+</p>
+
+<p>
 
 Respuesta correcta:
 
 ✅ B. Medio de cambio
 
-<br><br>
-
-Retroalimentación:
-
-La función principal del dinero como medio de cambio
-es facilitar el intercambio económico.
-
-</div>
+</p>
 
 `;
 
@@ -374,28 +357,11 @@ es facilitar el intercambio económico.
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-`
-
-
-
 function saberpro(){
 
 document.getElementById("contenido").innerHTML = `
 
-<h2>🎯 Pregunta Tipo Saber Pro</h2>
+<h2>🎯 Saber Pro</h2>
 
 <p>
 
@@ -405,7 +371,7 @@ Si el Banco de la República aumenta las tasas de interés:
 
 <label>
 <input type="radio" name="saber1" value="A">
-A. Incrementa el consumo
+A. Aumenta el consumo
 </label><br>
 
 <label>
@@ -424,10 +390,12 @@ D. Aumenta la inflación
 </label><br><br>
 
 <button onclick="evaluarSaber()">
+
 Responder
+
 </button>
 
-<div id="resultadoSaber" style="margin-top:15px;"></div>
+<div id="resultadoSaber"></div>
 
 `;
 
@@ -448,56 +416,47 @@ return;
 
 }
 
-if(seleccion.value === "B"){
+if(seleccion.value==="B"){
 
 puntajeSaber += 10;
 
-document.getElementById("resultadoSaber")
-.innerHTML = `
+document.getElementById("resultadoSaber").innerHTML = `
 
-<div style="color:green">
+<p style="color:green">
 
 ✅ Correcto
 
-<br><br>
+</p>
+
+<p>
 
 Puntaje Saber Pro: ${puntajeSaber}
 
-<br><br>
+</p>
 
-Retroalimentación:
+<p>
 
-Cuando el Banco de la República aumenta las tasas
-de interés disminuye la liquidez y se reducen
-las presiones inflacionarias.
+Aumentar las tasas de interés ayuda a controlar la inflación.
 
-</div>
+</p>
 
 `;
 
 }else{
 
-document.getElementById("resultadoSaber")
-.innerHTML = `
+document.getElementById("resultadoSaber").innerHTML = `
 
-<div style="color:red">
+<p style="color:red">
 
 ❌ Incorrecto
 
-<br><br>
+</p>
 
-Respuesta correcta:
+<p>
 
-✅ B. Reduce presiones inflacionarias
+✅ Respuesta correcta: B
 
-<br><br>
-
-Retroalimentación:
-
-Una política monetaria contractiva aumenta las tasas
-para controlar la inflación.
-
-</div>
+</p>
 
 `;
 
@@ -505,85 +464,105 @@ para controlar la inflación.
 
 }
 
+function mostrarProgreso(){
 
+let total = puntajeQuiz + puntajeSaber;
+
+document.getElementById("contenido").innerHTML = `
+
+<h2>📊 Mi Progreso</h2>
+
+<div class="progreso">
+
+<p>Quiz: ${puntajeQuiz} puntos</p>
+
+<p>Saber Pro: ${puntajeSaber} puntos</p>
+
+<p><strong>Total: ${total} puntos</strong></p>
+
+</div>
+
+`;
+
+}
 
 function preguntar(){
 
 let texto =
-document.getElementById("pregunta")
+document
+.getElementById("pregunta")
 .value
 .toLowerCase()
 .normalize("NFD")
 .replace(/[\u0300-\u036f]/g,"");
 
-let respuesta="";
+let respuesta = "";
 
-if(
-texto.includes("inflacion")
-||
-texto.includes("inflación")
-){
+if(texto.includes("inflacion")){
 
-respuesta="La inflación es el aumento sostenido del nivel general de precios.";
+respuesta =
+"La inflación es el aumento sostenido del nivel general de precios.";
 
 }
 
 else if(texto.includes("basilea")){
 
-respuesta="Basilea III es un conjunto de estándares internacionales para fortalecer la regulación bancaria.";
+respuesta =
+"Basilea III es un conjunto de estándares internacionales diseñados para fortalecer la regulación bancaria.";
 
 }
 
 else if(texto.includes("encaje")){
 
-respuesta="El encaje bancario es el porcentaje de depósitos que los bancos deben mantener como reserva obligatoria.";
+respuesta =
+"El encaje bancario es el porcentaje de depósitos que los bancos deben mantener como reserva.";
 
 }
 
 else if(texto.includes("oferta monetaria")){
 
-respuesta="La oferta monetaria corresponde a la cantidad total de dinero disponible en una economía.";
+respuesta =
+"La oferta monetaria es la cantidad total de dinero disponible en una economía.";
 
 }
 
 else if(texto.includes("m1")){
 
-respuesta="M1 incluye efectivo en circulación y depósitos a la vista.";
+respuesta =
+"M1 incluye efectivo en circulación y depósitos a la vista.";
 
 }
 
 else if(texto.includes("m2")){
 
-respuesta="M2 incluye M1 más depósitos de ahorro y otros instrumentos líquidos.";
+respuesta =
+"M2 incluye M1 más depósitos de ahorro y otros instrumentos líquidos.";
 
 }
 
 else if(texto.includes("oma")){
 
-respuesta="Las OMA son operaciones de mercado abierto realizadas por el Banco Central para controlar la liquidez.";
-
-}
-
-else if(texto.includes("multiplicador")){
-
-respuesta="El multiplicador monetario indica cuánto puede expandirse la oferta monetaria a partir de una cantidad inicial de dinero.";
+respuesta =
+"Las OMA son operaciones de mercado abierto que realiza el Banco Central.";
 
 }
 
 else if(texto.includes("politica monetaria")){
 
-respuesta="La política monetaria es el conjunto de decisiones del Banco de la República para controlar inflación y liquidez.";
+respuesta =
+"La política monetaria busca controlar inflación y liquidez.";
 
 }
 
 else{
 
-respuesta="Todavía no tengo una respuesta para esa consulta. Próximamente ampliaré mi base de conocimiento.";
+respuesta =
+"No tengo todavía una respuesta para esa consulta. Próximamente ampliaré mi base de conocimiento.";
 
 }
 
-document.getElementById("respuesta")
-.innerHTML=respuesta;
+document.getElementById("respuesta").innerHTML =
+respuesta;
 
 }
 
