@@ -175,7 +175,8 @@ Selecciona una opción del menú o realiza una pregunta.
 
 <script>
 
-function unidad1(){
+let puntajeQuiz = 0;
+let puntajeSaber = 0;
 
 document.getElementById("contenido").innerHTML=`
 
@@ -265,40 +266,137 @@ document.getElementById("contenido").innerHTML=`
 
 function quiz(){
 
-document.getElementById("contenido").innerHTML=`
+document.getElementById("contenido").innerHTML = `
 
-<h2>📝 Quiz</h2>
+<h2>📝 Quiz de Práctica</h2>
 
-<p>
+<p><strong>Pregunta 1:</strong></p>
 
-¿Cuál es una función del dinero?
+<p>¿Cuál es una función principal del dinero?</p>
 
-</p>
+<label>
+<input type="radio" name="quiz1" value="A">
+A. Emitir bonos
+</label><br>
 
-<p>
+<label>
+<input type="radio" name="quiz1" value="B">
+B. Medio de cambio
+</label><br>
 
-A. Emitir bonos<br>
-B. Medio de cambio<br>
-C. Cobrar impuestos<br>
+<label>
+<input type="radio" name="quiz1" value="C">
+C. Cobrar impuestos
+</label><br>
+
+<label>
+<input type="radio" name="quiz1" value="D">
 D. Administrar bancos
+</label><br><br>
 
-</p>
+<button onclick="evaluarQuiz()">
+Verificar Respuesta
+</button>
 
-<p>
-
-✅ Respuesta correcta: B
-
-</p>
+<div id="resultadoQuiz" style="margin-top:15px;"></div>
 
 `;
 
 }
 
+function evaluarQuiz(){
+
+let seleccion =
+document.querySelector('input[name="quiz1"]:checked');
+
+if(!seleccion){
+
+document.getElementById("resultadoQuiz")
+.innerHTML =
+"⚠️ Debes seleccionar una respuesta.";
+
+return;
+
+}
+
+if(seleccion.value === "B"){
+
+puntajeQuiz += 10;
+
+document.getElementById("resultadoQuiz")
+.innerHTML = `
+
+<div style="color:green">
+
+✅ Correcto
+
+<br><br>
+
+Puntaje Quiz: ${puntajeQuiz}
+
+<br><br>
+
+Retroalimentación:
+
+El dinero cumple la función de medio de cambio
+porque facilita las transacciones de bienes y servicios.
+
+</div>
+
+`;
+
+}else{
+
+document.getElementById("resultadoQuiz")
+.innerHTML = `
+
+<div style="color:red">
+
+❌ Incorrecto
+
+<br><br>
+
+Respuesta correcta:
+
+✅ B. Medio de cambio
+
+<br><br>
+
+Retroalimentación:
+
+La función principal del dinero como medio de cambio
+es facilitar el intercambio económico.
+
+</div>
+
+`;
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`
+
+
+
 function saberpro(){
 
-document.getElementById("contenido").innerHTML=`
+document.getElementById("contenido").innerHTML = `
 
-<h2>🎯 Saber Pro</h2>
+<h2>🎯 Pregunta Tipo Saber Pro</h2>
 
 <p>
 
@@ -306,27 +404,109 @@ Si el Banco de la República aumenta las tasas de interés:
 
 </p>
 
-<p>
+<label>
+<input type="radio" name="saber1" value="A">
+A. Incrementa el consumo
+</label><br>
 
-A. Incrementa el consumo<br>
+<label>
+<input type="radio" name="saber1" value="B">
+B. Reduce presiones inflacionarias
+</label><br>
 
-B. Reduce presiones inflacionarias<br>
+<label>
+<input type="radio" name="saber1" value="C">
+C. Elimina el ahorro
+</label><br>
 
-C. Aumenta la inflación<br>
+<label>
+<input type="radio" name="saber1" value="D">
+D. Aumenta la inflación
+</label><br><br>
 
-D. Elimina el ahorro
+<button onclick="evaluarSaber()">
+Responder
+</button>
 
-</p>
-
-<p>
-
-✅ Respuesta correcta: B
-
-</p>
+<div id="resultadoSaber" style="margin-top:15px;"></div>
 
 `;
 
 }
+
+function evaluarSaber(){
+
+let seleccion =
+document.querySelector('input[name="saber1"]:checked');
+
+if(!seleccion){
+
+document.getElementById("resultadoSaber")
+.innerHTML =
+"⚠️ Debes seleccionar una respuesta.";
+
+return;
+
+}
+
+if(seleccion.value === "B"){
+
+puntajeSaber += 10;
+
+document.getElementById("resultadoSaber")
+.innerHTML = `
+
+<div style="color:green">
+
+✅ Correcto
+
+<br><br>
+
+Puntaje Saber Pro: ${puntajeSaber}
+
+<br><br>
+
+Retroalimentación:
+
+Cuando el Banco de la República aumenta las tasas
+de interés disminuye la liquidez y se reducen
+las presiones inflacionarias.
+
+</div>
+
+`;
+
+}else{
+
+document.getElementById("resultadoSaber")
+.innerHTML = `
+
+<div style="color:red">
+
+❌ Incorrecto
+
+<br><br>
+
+Respuesta correcta:
+
+✅ B. Reduce presiones inflacionarias
+
+<br><br>
+
+Retroalimentación:
+
+Una política monetaria contractiva aumenta las tasas
+para controlar la inflación.
+
+</div>
+
+`;
+
+}
+
+}
+
+
 
 function preguntar(){
 
